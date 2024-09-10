@@ -38,7 +38,7 @@ if ($driver) {
     <title>Thank You</title>
     <style>
         body {
-            background-image: url('https://i.pinimg.com/736x/1d/83/80/1d8380cfc453af6571f66571bb088b98.jpg');
+            background-image: bzflush;
             background-size: cover;
             font-family: Arial, sans-serif;
         }

@@ -3,7 +3,7 @@ session_start();
 $host = 'localhost:3306';
 $user = 'root';
 $pass = '';
-$dbname = "cravingkitchen";
+$dbname = "OrderUp_Now";
 
 // Create connection
 $conn = new mysqli($host, $user, $pass, $dbname);
