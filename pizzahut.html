@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food Delivery Application</title>
+    <link rel="stylesheet" href="style.css">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<style>
+.menu {
+  display: flex;
+  justify-content: space-around;
+  padding: 20px;
+  margin-top: 100px;
+  flex-wrap: wrap;
+}
+
+.pizza {
+  text-align: center;
+  flex-basis: 20%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.pizza-row {
+  display: flex;
+  justify-content: space-around;
+  padding: 20px;
+  margin-top: 10px;
+}
+.pizza img {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-bottom: 10px;
+  flex-basis: 30%;
+}
+
+.pizza-description {
+  flex-basis: 70%;
+  margin-left: 30px;
+}
+
+.pizza h2 {
+  margin-top: 0;
+  margin-bottom: 5px;
+  flex-basis: 100%;
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 14px;
+  font: weight 50px;
+  padding-top: 10px;
+  padding-right: 20px;
+  padding-right: 20px;
+}
+
+.pizza p {
+  margin-bottom: 10px;
+  font-size: smaller;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  color: #414441;
+  padding-left: 20px;
+  padding-right: 20px;
+  flex-basis: 100%;
+}
+
+.add-to-cart {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  flex-basis: 100%;
+}
+    
+</style>
+</head>
+<body>
+    <div class="main-container">
+        <header class="navbar">
+            <div class="global-nav">
+                <div class="nav">
+                    <div class="left">
+                        <a href="index.html" class="logo">
+                        <img src="Red Hot Kitchen Food Logo.jpg" height="80px" width="85px">
+                        </a>
+                        <div class="location-div">
+                            <span class="other">Other</span>
+                            <span class="location">Vijayawada,Amaravati,India</span>
+                            <span class="arrow-down">
+                                <i class="fa-solid fa-angle-down"></i>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="right">
+                        <ul class="items">
+                            <li>
+                                <div class="nav-items">
+                                    <i class="fa-solid fa-magnifying-glass"></i><pre>  </pre>
+                                    <a href="seacrh.html">
+                                    <button onclick="search()" id="search" style="border: 0; 
+                                background-color: #fff; cursor: pointer;">Search</button></a>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="nav-items">
+                                <i class="fa-solid fa-circle-info"></i><pre>  </pre>
+                                <a href="help.html" target="_parent">
+                                <button id="help" style="border: 0; 
+                                background-color: #fff; cursor: pointer;">Help</button></a>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="nav-items">
+                                <i class="fa-solid fa-ticket"></i><pre>  </pre>
+                                <button id="login-btn" style="border: 0; 
+                                background-color: #fff; cursor: pointer;">Login</button>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="nav-items">
+                                <i class="fa-solid fa-user"></i><pre>  </pre>
+                                <button id="signin-btn" style="border: 0; 
+                                background-color: #fff; cursor: pointer;">SignIn</button>
+                                </div>
+                            </li>
+                            <li>
+                              <div class="nav-items">
+                                <i class="fa-solid fa-cart-shopping"></i><pre>  </pre>
+                                <a href="cart.php"><button id="cart" style="border: 0; 
+                                background-color: #fff; cursor: pointer;">Cart</button></a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <div id="myModal" class="modal">
+          <!-- Modal content -->
+          <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Login</h2>
+            <form action="login.php" method="post" class="login-form">
+              <label for="username">Username:</label>
+              <input type="text" id="username" name="username" required />
+              <label for="password">Password:</label>
+              <input type="password" id="password" name="password" required />
+              <input type="submit" onclick="clearLoginForm()" value="Login" />
+            </form>
+          </div>
+        </div>
+        <script src="script.js"></script>
+        <div id="myModal2" class="modal">
+          <!-- Modal content -->
+          <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Sign Up</h2>
+            <form action="signup.php" method="post" class="sign-up-form">
+              <label for="name">Name:</label>
+              <input type="text" id="name" name="name" required>
+              <label for="username">Username:</label>
+              <input type="text" id="username2" name="username2" required />
+              <label for="password">Password:</label>
+              <input type="password" id="password2" name="password2" required />
+              <label for="phone">Phone:</label>
+              <input type="tel" id="phone" name="phone" required style="width: 358px; width: 100%;
+              padding: 12px 20px;
+              margin: 8px 0;
+              display: inline-block;
+              border: 1px solid #ccc;
+              box-sizing: border-box;"/>
+              <input type="submit" onclick="clearSigninForm()" value="Sign Up" />
+            </form>
+          </div>
+        </div>
+      <script src="script.js"></script>
+        <div class="menu">
+          <h1>Veg Pizza's</h1>
+          <div class="pizza-row">
+            <div class="pizza">
+              <img src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_208,h_208,c_fit/z0c4xpovma1qtmu4tlls" alt="Belgian Chocolate Waffle">
+              <h2>Chilli Paneer Sizzle</h2>
+              <p>Pizza topped with spiced paneer, a spicy schezwan sauce, juicy tomato, crunchy onion & capsicum and cheesy dressing.</p>
+              <a href="cart.php"><button class="add-to-cart" data-id="5">₹ 179 | Go to Cart</button></a>
+            </div>
+            <div class="pizza">
+              <img src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_208,h_208,c_fit/b7d1f56df6414f8b6e49001af95e259a" alt="Maple Syrup Waffle">
+              <h2>Ultimate Tandoori Veggie</h2>
+              <p>Serves 1 | An ultimate combination of your favourite veggies- onion, green capsicum, mushroom, tomato, spicy jalapeno on tandoori sauce, topped with 100% mozzarella cheese & generous drizzle of mint mayo.</p>
+              <a href="cart.php">  <button class="add-to-cart" data-id="13">₹ 379 | Go to Cart</button></a>
+            </div>
+            <div class="pizza">
+              <img src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_208,h_208,c_fit/s5ld93rsknx0fhj6xarn" alt="Maple Syrup Waffle">
+              <h2>Tandoori Paneer</h2>
+              <p>Serves 1 | It's our signature. Spiced Paneer, Crunchy Onions & Green Capsicum, spicy Red Paprika with delicious Tandoori Sauce and 100% mozzarella cheese!</p>
+              <a href="cart.php"> <button class="add-to-cart" data-id="8">₹ 319 | Go to Cart</button></a>
+            </div>
+          </div>
+          <h1>Non-Veg Pizza's</h1>
+          <div class="pizza-row">
+            <div class="pizza">
+              <img src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_208,h_208,c_fit/quxirmjttzksp7xlhysc" alt="Strawberry Waffle">
+              <h2>Triple Chicken Feast</h2>
+              <p>Serves 1 | Spicy Schezwan Chicken Meatball, flavourful Herbed Chicken, juicy Chicken Sausage, Green Capsicum & Onion, spicy Red Paprika with classic pan sauce and 100% mozzarella cheese.</p>
+              <a href="cart.php">  <button class="add-to-cart" data-id="20">₹ 409 | Go to Cart</button></a>
+            </div>
+            <div class="pizza">
+              <img src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_208,h_208,c_fit/d9eddb1993da4e5dc65ef2ceaa8503f7" alt="Belgian Chocolate Waffle">
+              <h2>Dhabe Da Keema</h2>
+              <p>Serves 1 | Dhaba style chicken keema masala, with green chiili, crunchy onion with flavourful pan sauce, 100 % mozzarella cheese & a generous drizzle of mint mayo</p>
+              <a href="cart.php"> <button class="add-to-cart" data-id="22">₹ 319 | Go to Cart</button></a>
+            </div>
+            <div class="pizza">
+              <img src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_208,h_208,c_fit/4061af0525c00c89f0d1edbe7216765c" alt="Maple Syrup Waffle">
+              <h2>Sizzling Schezwan Chicken</h2>
+              <p>Serves 1 | Loaded with our signature spicy schezwan sauce, juicy schezwan chicken meatballs & 100% mozzarella cheese</p>
+              <a href="cart.php"> <button class="add-to-cart" data-id="23">₹ 319 | Go to Cart</button></a>
+            </div>
+          </div>
+          </div>
+          </body>
+  <footer class="footer">
+    <div class="footer-content">
+        <div class="points">COMPANY
+            <ul class="footer-ul">
+                <li class="footer-li"><a href="about_career_teams.html" target="_blank">About us</a></li>
+                <li class="footer-li"><a href="about_career_teams.html" target="_blank">Careers</a></li>
+                <li class="footer-li"><a href="about_career_teams.html" target="_blank">Team</a></li>
+              </ul>
+            </div>
+        <div class="points">CONTACT
+                <ul class="footer-ul">
+                  <li class="footer-li"><a href="help.html">Help & Support</a></li>
+                  <li class="footer-li"><a href="partner_ride.html" target="_blank">Partner with us</a></li>
+                  <li class="footer-li"><a href="partner_ride.html" target="_blank">Ride with us</a></li>
+                </ul>
+            </div>
+        <div class="points">LEGAL
+                <ul class="footer-ul">
+                  <li class="footer-li"><a href="t&c.html" target="_blank">Terms & Conditions</a></li>
+                  <li class="footer-li"><a href="cancellation.html" target="_blank">Refund & Cancellation</a></li>
+                  <li class="footer-li"><a href="privacy.html" target="_blank">Privacy Policy</a></li>
+                  <li class="footer-li"><a href="cookie.html" target="_blank">Cookie Policy</a></li>
+                </ul>
+            </div>
+        <div class="points"><img
+          src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto/portal/m/play_store.png"
+          height="54"/>
+        <img
+          src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto/portal/m/app_store.png"
+          height="54"/>
+        </div>
+    </div>
+</footer>
+</div>
+</body>
+</html>

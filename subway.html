@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OrderUp_Now</title>
+    <link rel="stylesheet" href="style.css">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<style>
+.menu {
+  display: flex;
+  justify-content: space-around;
+  padding: 20px;
+  margin-top: 100px;
+  flex-wrap: wrap;
+}
+
+.pizza {
+  text-align: center;
+  flex-basis: 20%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.pizza-row {
+  display: flex;
+  justify-content: space-around;
+  padding: 20px;
+  margin-top: 10px;
+}
+.pizza img {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-bottom: 10px;
+  flex-basis: 30%;
+}
+
+.pizza-description {
+  flex-basis: 70%;
+  margin-left: 30px;
+}
+
+.pizza h2 {
+  margin-top: 0;
+  margin-bottom: 5px;
+  flex-basis: 100%;
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 14px;
+  font: weight 50px;
+  padding-top: 10px;
+  padding-right: 20px;
+  padding-right: 20px;
+}
+
+.pizza p {
+  margin-bottom: 10px;
+  font-size: smaller;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  color: #414441;
+  padding-left: 20px;
+  padding-right: 20px;
+  flex-basis: 100%;
+}
+
+.add-to-cart {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  flex-basis: 100%;
+}
+    
+</style>
+</head>
+<body>
+    <div class="main-container">
+        <header class="navbar">
+            <div class="global-nav">
+                <div class="nav">
+                    <div class="left">
+                        <a href="index.html" class="logo">
+                        <img src="image/logo.webp" height="80px" width="85px">
+                        </a>
+                        <div class="location-div">
+                            <span class="other">OrderUp_Now</span>
+                            <span class="location">Ikeja Lagos</span>
+                            <span class="arrow-down">
+                                <i class="fa-solid fa-angle-down"></i>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="right">
+                        <ul class="items">
+                            <li>
+                                <div class="nav-items">
+                                    <i class="fa-solid fa-magnifying-glass"></i><pre>  </pre>
+                                    <a href="seacrh.html">
+                                    <button onclick="search()" id="search" style="border: 0; 
+                                background-color: #fff; cursor: pointer;">Search</button></a>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="nav-items">
+                                <i class="fa-solid fa-circle-info"></i><pre>  </pre>
+                                <a href="help.html" target="_parent">
+                                <button id="help" style="border: 0; 
+                                background-color: #fff; cursor: pointer;">Help</button></a>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="nav-items">
+                                <i class="fa-solid fa-ticket"></i><pre>  </pre>
+                                <button id="login-btn" style="border: 0; 
+                                background-color: #fff; cursor: pointer;">Login</button>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="nav-items">
+                                <i class="fa-solid fa-user"></i><pre>  </pre>
+                                <button id="signin-btn" style="border: 0; 
+                                background-color: #fff; cursor: pointer;">SignIn</button>
+                                </div>
+                            </li>
+                            <li>
+                              <div class="nav-items">
+                                <i class="fa-solid fa-cart-shopping"></i><pre>  </pre>
+                                <a href="cart.php"><button id="cart" style="border: 0; 
+                                background-color: #fff; cursor: pointer;">Cart</button></a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <div id="myModal" class="modal">
+          <!-- Modal content -->
+          <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Login</h2>
+            <form action="login.php" method="post" class="login-form">
+              <label for="username">Username:</label>
+              <input type="text" id="username" name="username" required />
+              <label for="password">Password:</label>
+              <input type="password" id="password" name="password" required />
+              <input type="submit" onclick="clearLoginForm()" value="Login" />
+            </form>
+          </div>
+        </div>
+        <script src="script.js"></script>
+        <div id="myModal2" class="modal">
+          <!-- Modal content -->
+          <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Sign Up</h2>
+            <form action="signup.php" method="post" class="sign-up-form">
+              <label for="name">Name:</label>
+              <input type="text" id="name" name="name" required>
+              <label for="username">Username:</label>
+              <input type="text" id="username2" name="username2" required />
+              <label for="password">Password:</label>
+              <input type="password" id="password2" name="password2" required />
+              <label for="phone">Phone:</label>
+              <input type="tel" id="phone" name="phone" required style="width: 358px; width: 100%;
+              padding: 12px 20px;
+              margin: 8px 0;
+              display: inline-block;
+              border: 1px solid #ccc;
+              box-sizing: border-box;"/>
+              <input type="submit" onclick="clearSigninForm()" value="Sign Up" />
+            </form>
+          </div>
+        </div>
+      <script src="script.js"></script>
+        <div class="menu">
+          <h1>Veg Sandwiches</h1>
+          <div class="pizza-row">
+            <div class="pizza">
+              <img src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_300,h_300,c_fit/ttoydnlmxjmsy4bnxptn" alt="Belgian Chocolate Waffle">
+              <h2> Sandwich</h2>
+              <p>Seasoned with special herbs and spices, paired with your choice of nutritious veggies, on a freshly baked bread.</p>
+              <a href="cart.php"> <button class="add-to-cart" data-id="1" >	₹ 209 | Go to Cart</button></a>
+            </div>
+            <div class="pizza">
+              <img src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_300,h_300,c_fit/ibvtgsayrbcarr4w1lgd" alt="Maple Syrup Waffle">
+              <h2> Sandwich</h2>
+              <p>Your favourite cottage cheese cubes marinated in sauce for a spicy, smoky flavour combined with your choice of veggies and sauces, served on a freshly baked bread.</p>
+              <a href="cart.php"> <button class="add-to-cart" data-id="3">₹ 259 | Go to Cart</button></a>
+            </div>
+            <div class="pizza">
+              <img src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_300,h_300,c_fit/nyijndkvbvxlzytlo5e7" alt="Belgian Chocolate Waffle">
+              <h2> Delite Sandwich</h2>
+              <p>Delicious combination of fresh lettuce, tomatoes, green peppers, cucumbers, onions, olives and pickles served on a freshly baked bread. </p>
+              <a href="cart.php"> <button class="add-to-cart" data-id="4">₹ 199 | Go to Cart</button></a>
+            </div>
+          </div>
+          <h1>Non Veg Sandwiches</h1>
+          <div class="pizza-row">
+            <div class="pizza">
+              <img src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_300,h_300,c_fit/iigw3gyqdbteyyo8pzzr" alt="Belgian Chocolate Waffle">
+              <h2>Chicken Sandwich</h2>
+              <p>Chicken strips glazed with teriyaki sauce, combined with your favourite veggies and topped with our signature sweet onion sauce served hot in a freshly baked bread of your choice. </p>
+              <a href="cart.php"> <button class="add-to-cart" data-id="10">₹ 279 | Go to Cart</button></a>
+            </div>
+            <div class="pizza">
+              <img src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_300,h_300,c_fit/m1ycfwqyybzqrwoemqfa" alt="Belgian Chocolate Waffle">
+              <h2> Sweet Chicken Sandwich</h2>
+              <p>Let your tastebuds travel the world with African peri-peri flavoured chicken served with nutritious veggies and packaged in your favourite bread of choice.</p>
+              <a href="cart.php">  <button class="add-to-cart" data-id="11" >	₹ 249 | Go to Cart</button></a>
+            </div>
+            <div class="pizza">
+              <img src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_300,h_300,c_fit/zpmz8kmwbbfptd8ahya0" alt="Strawberry Waffle">
+              <h2> Sandwich</h2>
+              <p>Hearty chicken marinated with flavorful ingredients like yogurt, garlic and ginger, oven cooked with trademark tandoori tikka taste and served with veggies and sauces in your favourite bread.</p>
+              <a href="cart.php"> <button class="add-to-cart" data-id="12"> ₹ 249 | Go to Cart</button></a>
+            </div>
+          </div>
+          </div>
+          </body>
+  <footer class="footer">
+    <div class="footer-content">
+        <div class="points">COMPANY
+            <ul class="footer-ul">
+                <li class="footer-li"><a href="about_career_teams.html" target="_blank">About us</a></li>
+                <li class="footer-li"><a href="about_career_teams.html" target="_blank">Careers</a></li>
+                <li class="footer-li"><a href="about_career_teams.html" target="_blank">Team</a></li>
+              </ul>
+            </div>
+        <div class="points">CONTACT
+                <ul class="footer-ul">
+                  <li class="footer-li"><a href="help.html">Help & Support</a></li>
+                  <li class="footer-li"><a href="partner_ride.html" target="_blank">Partner with us</a></li>
+                  <li class="footer-li"><a href="partner_ride.html" target="_blank">Ride with us</a></li>
+                </ul>
+            </div>
+        <div class="points">LEGAL
+                <ul class="footer-ul">
+                  <li class="footer-li"><a href="t&c.html" target="_blank">Terms & Conditions</a></li>
+                  <li class="footer-li"><a href="cancellation.html" target="_blank">Refund & Cancellation</a></li>
+                  <li class="footer-li"><a href="privacy.html" target="_blank">Privacy Policy</a></li>
+                  <li class="footer-li"><a href="cookie.html" target="_blank">Cookie Policy</a></li>
+                </ul>
+            </div>
+        <div class="points"><img
+          src="image/iyan and efo (1) - Copy.webp"
+          height="54"/>
+        <img
+          src="image/spagetti (1) - Copy.webp"
+          height="54"/>
+        </div>
+    </div>
+</footer>
+</div>
+</body>
+</html>
