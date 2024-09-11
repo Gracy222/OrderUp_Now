@@ -1,1 +1,1 @@
-NOTE: MAKE SURE YOU HAVE XAAMP/PHP IN YOUR SYSTEM AND INCLUDE THE CODES IN THE HTDOCS FOLDER. Open using localhost/foldername also u can check your databases in PHPMyAdmin.
+NOTE: I HAVE XAAMP/PHP IN MY SYSTEM AND I ALSO INCLUDE THE CODES IN THE HTDOCS FOLDER. Open using localhost/foldername/file name also u can check your databases in PHPMyAdmin.
