@@ -8,7 +8,7 @@
     <body>
         <div class="header">
         <a href="index.html" class="logo">
-                    <img src="Red Hot Kitchen Food Logo.jpg" height="80px" width="auto"></a>
+                    <img src="image/logo.webp" height="80px" width="auto"></a>
             <p class="logo">CART</p>
             <div class="cart"><i class="fa-solid fa-cart-shopping"></i><p id="count">0</p></div>
         </div>
@@ -27,7 +27,7 @@
             $host='localhost:3306';
             $user='root';
             $pass='';
-            $dbname='cravingkitchen';
+            $dbname='OrderUp_Now';
 
             //connect with database servername,username,password
             $conn=mysqli_connect($host,$user,$pass,$dbname);
