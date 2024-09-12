@@ -38,7 +38,7 @@ if ($driver) {
     <title>Thank You</title>
     <style>
         body {
-            background-image: bzflush;
+            background-image: url('image/burger (1) - Copy.webp');
             background-size: cover;
             font-family: Arial, sans-serif;
         }
